@@ -13,6 +13,10 @@
 ## How to use
 1. write .xml file (ex. setting_test.xml
 2. run the Acceptance_calculation  
-```./Acceptance_calculation [seed number] [xml file name] [*.mac file]```
-   * The inside `[]` is your defined
-   * If you want to see visualization, remove `[*.mac file]`  
+```./Acceptance_calculation [seed number] [xml file name] [macro file (*.mac)]```
+ * The inside `[]` is your defined
+ * macro files:  
+  * run.mac : run 1e+6 events
+  * test_run.mac : run 1e+3 events
+  * run4ep.mac : for run prompt positron (1e+7 events)
+ * If you want to see visualization, remove `[macro file]`  
