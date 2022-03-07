@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "analysis.C": "cpp",
+    "*.icc": "cpp",
+    "analysis_simu.C": "cpp",
+    "checkStopPos.C": "cpp",
+    "DOMParsePerson.C": "cpp",
+    "vector": "cpp"
+  }
+}

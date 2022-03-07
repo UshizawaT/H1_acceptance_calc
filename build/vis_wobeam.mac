@@ -1,0 +1,51 @@
+/control/verbose 0
+
+# Use this open statement to create an OpenGL view:
+/vis/open OGL 1200x600-0+0
+
+# Use this open statement to create a .prim file suitable for
+# viewing in DAWN:
+#/vis/open DAWNFILE
+
+# Use this open statement to create a .heprep file suitable for
+# viewing in HepRApp:
+#/vis/open HepRepFile
+
+# Use this open statement to create a .wrl file suitable for
+# viewing in a VRML viewer:
+#/vis/open VRML2FILE
+
+# Disable auto refresh and quieten vis messages whilst scene and
+# trajectories are established:
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+
+# Draw geometry:
+/vis/drawVolume
+
+# from y-axis
+/vis/viewer/set/upVector 0 0 1
+/vis/viewer/set/viewpointVector 0 1 0
+/vis/viewer/set/lightsVector 0 1 0
+
+# Specify zoom value:
+/vis/viewer/zoom 2
+
+# Specify style (surface or wireframe):
+#/vis/viewer/set/style wireframe
+/vis/viewer/set/style surface
+
+# To get nice view
+#/vis/geometry/set/visibility universe_P 0 false
+
+# Draw coordinate axes:
+#/vis/scene/add/axes 0 0 0 4 cm
+#/vis/scene/add/axes 0 0 0 1 cm
+
+# Re-establish auto refreshing and verbosity:
+##/vis/viewer/set/autoRefresh true
+#/vis/verbose warnings
+/vis/verbose 0
+
+# For file-based drivers, use this to create an empty detector view:
+/vis/viewer/flush
