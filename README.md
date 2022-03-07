@@ -11,3 +11,8 @@
 3. cmake and make it  
 ```cmake .. && make```
 ## How to use
+1. write .xml file (ex. setting_test.xml
+2. run the Acceptance_calculation  
+```./Acceptance_calculation [seed number] [xml file name] [*.mac file]```
+   * The inside `[]` is your defined
+   * If you want to see visualization, remove `[*.mac file]`  
