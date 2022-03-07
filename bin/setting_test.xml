@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<params>
+  <filename>acceptance</filename>
+  <beam type="mu+" hsize="20" vsize="0" spread_angle="0.0" />
+  <target type="PVC" thickness="1" angle="60" hsize="200" vsize="200" />
+  <mesh type="SUS304" wire_diameter="10" length="400" pitch="20" />
+  <scintillator ID="1" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2820" ypos="0" zpos="200" />
+  <scintillator ID="2" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2857" ypos="0" zpos="200" />
+  <scintillator ID="3" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2894" ypos="0" zpos="200" />
+</params>

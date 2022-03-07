@@ -1,0 +1,18 @@
+#/cuts/setMaxCutEnergy 110 MeV # default: 10 GeV
+#/run/setCut 0.1 m # default: 0.7 mm
+
+#/run/getCutForAGivenParticle gamma
+#/run/getCutForAGivenParticle e+
+#/run/getCutForAGivenParticle e-
+#/run/getCutForAGivenParticle proton
+
+/run/initialize
+/control/verbose 0
+/run/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/process/verbose 0
+
+/run/printProgress 10000000
+#/run/beamOn 10000
+/run/beamOn 10000000

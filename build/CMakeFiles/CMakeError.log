@@ -1,0 +1,293 @@
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_b067c && [1/2] Building C object CMakeFiles/cmTC_b067c.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_b067c
+FAILED: cmTC_b067c 
+: && /usr/bin/clang -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_b067c.dir/CheckFunctionExists.c.o -o cmTC_b067c -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_db2c5 && [1/2] Building C object CMakeFiles/cmTC_db2c5.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_db2c5
+FAILED: cmTC_db2c5 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_db2c5.dir/CheckFunctionExists.c.o -o cmTC_db2c5 -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_c4349 && [1/2] Building C object CMakeFiles/cmTC_c4349.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_c4349
+FAILED: cmTC_c4349 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_c4349.dir/CheckFunctionExists.c.o -o cmTC_c4349 -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_089aa && [1/2] Building C object CMakeFiles/cmTC_089aa.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_089aa
+FAILED: cmTC_089aa 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_089aa.dir/CheckFunctionExists.c.o -o cmTC_089aa -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_3d2b1 && [1/2] Building C object CMakeFiles/cmTC_3d2b1.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_3d2b1
+FAILED: cmTC_3d2b1 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_3d2b1.dir/CheckFunctionExists.c.o -o cmTC_3d2b1 -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_64aef && [1/2] Building C object CMakeFiles/cmTC_64aef.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_64aef
+FAILED: cmTC_64aef 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_64aef.dir/CheckFunctionExists.c.o -o cmTC_64aef -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_c93dd && [1/2] Building C object CMakeFiles/cmTC_c93dd.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_c93dd
+FAILED: cmTC_c93dd 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_c93dd.dir/CheckFunctionExists.c.o -o cmTC_c93dd -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_548c0 && [1/2] Building C object CMakeFiles/cmTC_548c0.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_548c0
+FAILED: cmTC_548c0 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_548c0.dir/CheckFunctionExists.c.o -o cmTC_548c0 -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_aecda && [1/2] Building C object CMakeFiles/cmTC_aecda.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_aecda
+FAILED: cmTC_aecda 
+: && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/icu4c/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/openblas/lib -L/usr/local/opt/qt@5/lib -L/usr/local/opt/libffi/lib CMakeFiles/cmTC_aecda.dir/CheckFunctionExists.c.o -o cmTC_aecda -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+

@@ -1,0 +1,16 @@
+# ninja log v5
+7	3117	1645695629413741076	CMakeFiles/Acceptance_lib.dir/src/GlobalVariables.cc.o	1321ee15914678e1
+7	3357	1645695629650182196	CMakeFiles/Acceptance_lib.dir/src/Material.cc.o	14cd6142338d7727
+5	5526	1645695631811912419	CMakeFiles/Acceptance_lib.dir/src/ActionInitialization.cc.o	7460d07fb43a5a69
+6	5857	1645695632146810179	CMakeFiles/Acceptance_lib.dir/src/EventAction.cc.o	a7528c636930a3f9
+8	5965	1645695632254202283	CMakeFiles/Acceptance_lib.dir/src/PrimaryGeneratorAction.cc.o	46d055bce26e3021
+3118	6977	1645695633271166896	CMakeFiles/Acceptance_lib.dir/src/RunAction.cc.o	374f9bea3849ac14
+6	7453	1645695633741254345	CMakeFiles/Acceptance_lib.dir/src/DetectorConstruction.cc.o	3ad07e4ee2df44d
+5965	8119	1645695634417082655	CMakeFiles/Acceptance_lib.dir/src/VisAttributes.cc.o	ceab85ccb4b786db
+3357	8316	1645695634607652119	CMakeFiles/Acceptance_lib.dir/src/Scintillator.cc.o	3f2746dabb951cd5
+5857	8376	1645695634673688712	CMakeFiles/Acceptance_lib.dir/src/TrackerHit.cc.o	ccd401c660f8f1ba
+6977	9513	1645695635810467558	CMakeFiles/Acceptance_lib.dir/src/XMLParamParser.cc.o	d44fff85f1d629e6
+5526	9536	1645695635825223234	CMakeFiles/Acceptance_lib.dir/src/SteppingAction.cc.o	c56cf44cbb24e477
+9536	10049	1645695636350908353	libAcceptance_lib.dylib	f18f80508c8f6a8e
+7455	11559	1645695637851640756	CMakeFiles/Acceptance_calculation.dir/Main.cc.o	f791ce076ab81a0a
+11559	11718	1645695638021049367	Acceptance_calculation	d4edfb19eea5b355
