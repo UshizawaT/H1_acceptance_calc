@@ -12,7 +12,8 @@
 3. cmake and make it  
 ```cmake .. && make```
 ## How to use
-1. write .xml file (ex. setting_test.xml
+1. write .xml file (ex. setting_test.xml  
+    * Unit is mm, deg.
 2. run the Acceptance_calculation  
 ```./Acceptance_calculation [seed number] [xml file name] [macro file (*.mac)]```
     * The inside `[]` is your defined
