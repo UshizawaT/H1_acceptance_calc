@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<params>
+  <filename>acceptance</filename>
+  <beam type="mu-" hsize="20" vsize="0" spread_angle="1.718358" momentum="70" />
+  <target type="Al" thickness="3" angle="60" hsize="200" vsize="200" />
+  <target type="PMMA" thickness="5" angle="60" hsize="200" vsize="200" />
+  <mesh type="SUS304" wire_diameter="1.8" length="400" pitch="20" />
+  <pb_block ID="1" xsize="200" ysize="100" zsize="50" xpos="2470" ypos="0" zpos="160" />
+  <pb_block ID="2" xsize="200" ysize="100" zsize="50" xpos="2470" ypos="0" zpos="240" />
+  <scintillator ID="1" groupID="1" vsize="15" hsize="10" thickness="1" angle="0" xpos="2933" ypos="0" zpos="200" tilt="0" />
+  <scintillator ID="2" groupID="1" vsize="30" hsize="10" thickness="5" angle="0" xpos="2993" ypos="0" zpos="200" tilt="0" />
+</params>

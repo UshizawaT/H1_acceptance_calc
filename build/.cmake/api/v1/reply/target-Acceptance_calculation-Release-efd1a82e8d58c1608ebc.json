@@ -1,0 +1,239 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Acceptance_calculation"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"include_directories",
+			"include",
+			"add_definitions"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"/group/had/g-2/share/root/root-6.18.04/ROOTUseFile.cmake",
+			"/group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/Geant4-10.5.1/UseGeant4.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 7,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 37,
+				"parent" : 9
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 36,
+				"parent" : 9
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -DG4USE_STD11 -std=c++11 -O3 -DNDEBUG -fno-trapping-math -ftree-vectorize -fno-math-errno  "
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 11,
+					"define" : "G4INTY_USE_XT"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "G4LIB_BUILD_DLL"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4UI_USE"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4UI_USE_TCSH"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4VERBOSE"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4VIS_USE"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4VIS_USE_OPENGL"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4VIS_USE_OPENGLX"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "G4_STORE_TRAJECTORY"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/group/had/g-2/share/root/root-6.18.04/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/had/ushizawa/ushizawa/AcceptanceCalc_v10.6/include"
+				},
+				{
+					"backtrace" : 10,
+					"isSystem" : true,
+					"path" : "/group/had/g-2/share/geant4/geant4.10.05.p01/install/include/Geant4"
+				},
+				{
+					"backtrace" : 10,
+					"isSystem" : true,
+					"path" : "/group/had/g-2/share/xerces-c/xerces-c-3.2.2/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "Acceptance_lib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Acceptance_calculation::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -DG4USE_STD11 -std=c++11 -O3 -DNDEBUG -fno-trapping-math -ftree-vectorize -fno-math-errno",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-L/group/had/g-2/share/root/root-6.18.04/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/group/had/g-2/share/root/root-6.18.04/lib:/home/had/ushizawa/ushizawa/AcceptanceCalc_v10.6/build:/group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64:/group/had/g-2/share/xerces-c/xerces-c-3.2.2/lib: libAcceptance_lib.so /group/had/g-2/share/root/root-6.18.04/lib/libCore.so /group/had/g-2/share/root/root-6.18.04/lib/libImt.so /group/had/g-2/share/root/root-6.18.04/lib/libRIO.so /group/had/g-2/share/root/root-6.18.04/lib/libNet.so /group/had/g-2/share/root/root-6.18.04/lib/libHist.so /group/had/g-2/share/root/root-6.18.04/lib/libGraf.so /group/had/g-2/share/root/root-6.18.04/lib/libGraf3d.so /group/had/g-2/share/root/root-6.18.04/lib/libGpad.so /group/had/g-2/share/root/root-6.18.04/lib/libROOTDataFrame.so /group/had/g-2/share/root/root-6.18.04/lib/libTree.so /group/had/g-2/share/root/root-6.18.04/lib/libTreePlayer.so /group/had/g-2/share/root/root-6.18.04/lib/libRint.so /group/had/g-2/share/root/root-6.18.04/lib/libPostscript.so /group/had/g-2/share/root/root-6.18.04/lib/libMatrix.so /group/had/g-2/share/root/root-6.18.04/lib/libPhysics.so /group/had/g-2/share/root/root-6.18.04/lib/libMathCore.so /group/had/g-2/share/root/root-6.18.04/lib/libThread.so /group/had/g-2/share/root/root-6.18.04/lib/libMultiProc.so /group/had/g-2/share/root/root-6.18.04/lib/libXMLIO.so /group/had/g-2/share/root/root-6.18.04/lib/libXMLParser.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4Tree.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4GMocren.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4FR.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4visHepRep.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4RayTracer.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4VRML.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4OpenGL.so /usr/lib64/libSM.so /usr/lib64/libICE.so /usr/lib64/libX11.so /usr/lib64/libXext.so /usr/lib64/libXmu.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4gl2ps.so /usr/lib64/libGL.so /usr/lib64/libGLU.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4vis_management.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4modeling.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4interfaces.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4persistency.so /group/had/g-2/share/xerces-c/xerces-c-3.2.2/lib/libxerces-c.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4error_propagation.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4readout.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4physicslists.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4run.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4event.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4tracking.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4parmodels.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4processes.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4analysis.so /usr/lib64/libfreetype.so /usr/lib64/libexpat.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4digits_hits.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4track.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4particles.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4geometry.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4materials.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4graphics_reps.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4intercoms.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4global.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4clhep.so /group/had/g-2/share/geant4/geant4.10.05.p01/install/lib64/libG4zlib.so",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Acceptance_calculation",
+	"nameOnDisk" : "Acceptance_calculation",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Main.cc",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
