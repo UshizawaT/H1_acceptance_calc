@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-28017db9491e2ba18abe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.9"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Acceptance_calc_v4",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Acceptance_calc_v4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Acceptance_calc_v4-Release-a3ced8cec07ea32f5a29.json",
+					"name" : "Acceptance_calc_v4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Acceptance_calculation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Acceptance_calculation-Release-66a61694556ee4c90ae8.json",
+					"name" : "Acceptance_calculation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Acceptance_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Acceptance_lib-Release-d975b1eed654560899d1.json",
+					"name" : "Acceptance_lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build",
+		"source" : "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v11"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

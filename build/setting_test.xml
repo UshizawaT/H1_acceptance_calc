@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<params>
+  <filename>acceptance</filename>
+  <beam type="mu+" hsize="20" vsize="0" spread_angle="1.718358" />
+  <world name="world" type="air" ID="0" hsize="10000" vsize="4000" thickness="10000" xpos="0." ypos="0." zpos="0." angle="90" />
+  <vacuum name="vacuum_volume" type="vacuum" ID="0" diameter="1000" length="999.925" xpos="0" ypos="0" zpos="-500" angle="90" />
+  <kapton name="kapton_window" type="kapton" ID="0" diameter="400" length="75e-3" xpos="0" ypos="0" zpos="0" angle="90" />
+  <shield name="Shield" type="concrete" ID="0" hsize="1600" vsize="1600" thickness="1400" xpos="200" ypos="0" zpos="1890" angle="90" />
+  <target name="target" type="PVC" ID="0" angle="60" hsize="200" vsize="200" thickness="1" xpos="0" ypos="0" zpos="200" />
+  <mesh name="sus_mesh" type="SUS304" ID="0" wire_diameter="10" length="400" pitch="20" xpos="0" ypos="0" zpos="-5" />
+  <pb_block name="pb_block_" type="Pb" ID="1" hsize="200" vsize="100" thickness="50" xpos="2470" ypos="0" zpos="174.5" angle="90" />
+  <pb_block name="pb_block_" type="Pb" ID="2" hsize="200" vsize="100" thickness="50" xpos="2470" ypos="0" zpos="225.5" angle="90" />
+  <scintillator name="Scinti_" type="plastic" ID="1" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2820" ypos="0" zpos="200" />
+  <scintillator name="Scinti_" type="plastic" ID="2" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2857" ypos="0" zpos="200" />
+  <scintillator name="Scinti_" type="plastic" ID="3" groupID="1" hsize="500" vsize="500" thickness="5" angle="-30" xpos="2894" ypos="0" zpos="200" />
+</params>

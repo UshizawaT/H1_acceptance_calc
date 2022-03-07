@@ -1,0 +1,26 @@
+# ninja log v5
+6	227	1646381752217007678	CMakeFiles/Acceptance_lib.dir/src/Beam.cc.o	8e63649b50111f0b
+9	4415	1646381756387591524	CMakeFiles/Acceptance_lib.dir/src/DetectorWorld.cc.o	ad5f21184cde9c4d
+6	4675	1646381756647551544	CMakeFiles/Acceptance_lib.dir/src/BaseConstruct.cc.o	998673a99c0cdf55
+227	5698	1646381757662421364	CMakeFiles/Acceptance_lib.dir/src/GlobalVariables.cc.o	d19b3d88c2b075ba
+5	6606	1646381758573101100	CMakeFiles/Acceptance_lib.dir/src/ActionInitialization.cc.o	d04b531e3c83e6a2
+11	7009	1646381758967889137	CMakeFiles/Acceptance_lib.dir/src/EventAction.cc.o	75aa1135e817ad86
+8	7833	1646381759804526167	CMakeFiles/Acceptance_lib.dir/src/DetectorConstruction.cc.o	1d0545d048540407
+4676	9060	1646381761033695378	CMakeFiles/Acceptance_lib.dir/src/Material.cc.o	5dd77db9934548b6
+6607	10429	1646381762395635000	CMakeFiles/Acceptance_lib.dir/src/MeshParam.cc.o	f5ab9d2ae8795861
+4415	10761	1646381762738067756	CMakeFiles/Acceptance_lib.dir/src/Kapton.cc.o	a86aff5ebe769cc1
+5698	11677	1646381763635161777	CMakeFiles/Acceptance_lib.dir/src/Mesh.cc.o	5517ce090b4c3b0e
+10761	13544	1646381765517877102	CMakeFiles/Acceptance_lib.dir/src/TrackerHit.cc.o	5038ce76e5968997
+7833	13874	1646381765827271176	CMakeFiles/Acceptance_lib.dir/src/RunAction.cc.o	f5e412d7d0e7d1a2
+7009	14521	1646381766496083482	CMakeFiles/Acceptance_lib.dir/src/PrimaryGeneratorAction.cc.o	40205092fa1fb0fa
+9060	15194	1646381767160365003	CMakeFiles/Acceptance_lib.dir/src/Scintillator.cc.o	53c062585a7dc98b
+13544	15909	1646381767892455138	CMakeFiles/Acceptance_lib.dir/src/VisAttributes.cc.o	6a4fe5e43bac3f4
+11677	15949	1646381767914466607	CMakeFiles/Acceptance_lib.dir/src/VacuumVolume.cc.o	69a10e166675857b
+10429	16328	1646381768286387843	CMakeFiles/Acceptance_lib.dir/src/SteppingAction.cc.o	8dc8e8c22b977e23
+13874	17718	1646381769700124822	CMakeFiles/Acceptance_lib.dir/src/XMLParamParser.cc.o	cd8825925eaf49ad
+17718	17992	1646381769977605043	libAcceptance_lib.dylib	751c44675c5b082c
+14521	18843	1646381770818904722	CMakeFiles/Acceptance_calculation.dir/Main.cc.o	bc26f7bdc3824b6
+18843	19005	1646381770989337528	Acceptance_calculation	b3c67bd7052d7d02
+46	6934	1646476222997591952	CMakeFiles/Acceptance_lib.dir/src/XMLParamParser.cc.o	cd8825925eaf49ad
+6934	8198	1646476224264114329	libAcceptance_lib.dylib	751c44675c5b082c
+8199	8366	1646476224431899233	Acceptance_calculation	b3c67bd7052d7d02
