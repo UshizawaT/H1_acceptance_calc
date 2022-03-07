@@ -3,7 +3,7 @@
 * ROOT : 6.18 or above
 * Geant4 : 4.10 or above
 * libxml2 and CLHEP required
-    * recomend to use it on kekcc
+* __recomend to use it on kekcc__
 ## How to build
 1. git clone the repo  
 ```git clone https://github.com/UshizawaT/H1_acceptance_calc.git```
