@@ -77,9 +77,6 @@ inline void Initialize() {
 
 inline void DeleteVar() {
   delete _beam;
-  delete _stopping_tgt;
-  delete _scintillators;
-  delete _pb_blocks;
   delete v_pid_sec;
   delete v_ekin_sec;
   delete v_dirX_sec;

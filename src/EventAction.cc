@@ -16,17 +16,13 @@ using namespace CLHEP;
 EventAction::EventAction() {
   hitflag.resize(_scinti_group_num);
   coinciflag.resize(_scinti_group_num);
-  G4int gid_1, scinti_i;
-  scintis_gid.resize(_scinti_num);
+  G4int gid_1;
+  scintis_gid = _scinti_group_ids;
   edep_scinti.resize(_scinti_num);
-  ScintillatorObject* itr_scinti = 0;
-  TIter next(_scintillators);
-  while (itr_scinti = (ScintillatorObject*)next()) {
-    scinti_i = itr_scinti->GetScintiId() - 1;
-    scintis_gid[scinti_i] = itr_scinti->GetScintiGroupId();
-    gid_1 = scintis_gid[scinti_i] - 1;
-    edep_scinti[scinti_i] = 0.0;
-    coinciflag[gid_1] |= (1 << scinti_i);
+  for (int i = 0; i < _scinti_num; ++i) {
+    gid_1 = scintis_gid[i];
+    edep_scinti[i] = 0.0;
+    coinciflag[gid_1] |= (1 << i);
   }
   G4cerr << "constractor of event act." << G4endl;
 }

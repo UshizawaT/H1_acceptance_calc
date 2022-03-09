@@ -10,12 +10,11 @@
 
 class Mesh : public BaseConstruct {
  public:
-  Mesh(TString _name, int _id, TString _material_name, G4ThreeVector _size,
-       G4ThreeVector _position, double _angle)
-      : BaseConstruct(_name, _id, _material_name, _size, _position, _angle) {}
-  void SetGeometry(G4LogicalVolume *_parent, G4String color_name);
-
- private:
-  G4Tubs *wire_solid;
+  Mesh(G4LogicalVolume *_parent, TString _name, int _id, TString _material_name,
+       G4ThreeVector _size, G4ThreeVector _position, double _angle,
+       TString _color)
+      : BaseConstruct(_parent, _name, _id, _material_name, _size, _position,
+                      _angle, _color) {}
+  void SetGeometry();
 };
 #endif  // !MESH_HH

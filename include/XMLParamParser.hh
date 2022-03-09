@@ -9,39 +9,32 @@
 #include <TXMLNode.h>
 #include <TXMLParser.h>
 
+#include <G4LogicalVolume.hh>
+#include <algorithm>  // std::sort, std::unique
 #include <globals.hh>
 #include <iostream>
 
+#include "BaseBox.hh"
 #include "BaseConstruct.hh"
+#include "BaseTubs.hh"
 #include "Beam.hh"
-#include "DetectorWorld.hh"
 #include "GlobalVariables.hh"
-#include "Kapton.hh"
-#include "LeadBlock.hh"
 #include "Mesh.hh"
-#include "ScintillatorObject.hh"
-#include "Shield.hh"
-#include "StoppingTarget.hh"
-#include "VacuumVolume.hh"
+#include "Scintillator.hh"
 
 using std::cout;
 using std::endl;
+using namespace CLHEP;
 
 class XMLParamParser {
  public:
-  XMLParamParser(TString xmlfile) {
-    _scintillators = new TList();
-    _pb_blocks = new TList();
-    nodenames = {"filename", "beam",   "world", "vacuum",   "kapton",
-                 "shield",   "target", "mesh",  "pb_block", "scintillator"};
-    normalbox = {"name",      "type", "ID",   "hsize", "vsize",
-                 "thickness", "xpos", "ypos", "zpos",  "angle"};
-    normalTubs = {"name", "type", "ID",   "diameter", "length",
-                  "xpos", "ypos", "zpos", "angle"};
-    scinti_node = {"name",      "type", "ID",   "groupID", "hsize", "vsize",
-                   "thickness", "xpos", "ypos", "zpos",    "angle"};
-    mesh_node = {"name",  "type", "ID",   "wire_diameter", "length",
-                 "pitch", "xpos", "ypos", "zpos"};
+  XMLParamParser(TString xmlfile, Scintillator *_scinti) {
+    scinti = _scinti;
+    nodenames = {"filename", "beam", "basebox", "basetubs", "mesh"};
+    beamnode = {"size", "spread_angle", "mean_momentum", "momentum_width"};
+    normalconst = {"parent", "size", "position", "angle", "color"};
+    mesh_node = {"parent", "size", "pitch", "position", "angle", "color"};
+    // attrlist = {"name", "type", "ID", "groupID", "index", "unit"};
 
     if (ParseFile(xmlfile) == 0) {
       std::cerr << "can't find xml file !" << std::endl;
@@ -50,30 +43,200 @@ class XMLParamParser {
   ~XMLParamParser() {}
   TString GetFileBaseName();
   TString GetXMLBaseName();
+  std::vector<BaseConstruct *> GetConstructsList();
+  BaseConstruct *GetConstruct(int index);
+  BaseConstruct *GetWorld();
+  int GetConstNumber();
 
  private:
   TString file_base_name;
   TString xml_base_name;
-  std::vector<TString> nodenames;
-  std::vector<TString> normalbox;
-  std::vector<TString> normalTubs;
-  std::vector<TString> scinti_node;
-  std::vector<TString> mesh_node;
+  Scintillator *scinti;
+  std::vector<BaseConstruct *> constructs;
+  std::vector<TString> nodenames, beamnode, normalconst, mesh_node,
+      construct_names, construct_type;  //, attrlist;
+  std::vector<int> construct_number;
 
   TString FileName(TString fname);
   Int_t ParseFile(TString filename);
   void ParseParameters(TXMLNode *_node);
-  void GetParams(TXMLNode *_child, std::vector<TString> attr_name,
-                 std::vector<G4String> &strdata, std::vector<int> &ids,
-                 std::vector<double> &numdata);
+  bool judgeElementNode(TXMLNode *_node);
+  int GetIntFromAttribute(TXMLAttr *attr, TString attrname);
+  double GetDoubleFromAttribute(TXMLAttr *attr, TString attrname);
+  void GetStringFromAttribute(TXMLNode *node, TString attrname,
+                              TString &output);
+  void GetStringFromAttribute(TXMLNode *node, std::vector<TString> attrname,
+                              std::vector<TString> &output);
+  G4double GetUnitFromAttribute(TXMLAttr *attr);
+  void GetDoubleFromNode(TXMLNode *_node, G4double &output);
+  void GetDoubleFromNode(TXMLNode *_node, G4ThreeVector &output);
+  void GetDoubleFromNode(TXMLNode *_node, G4TwoVector &output);
+  void SetConstructNumber();
+  void SetScintiGroupNumber();
   Beam *ParseBeam(TXMLNode *_child);
-  DetectorWorld *ParseWorld(TXMLNode *_child);
-  VacuumVolume *ParseVacuumV(TXMLNode *_child);
-  Kapton *ParseKapton(TXMLNode *_child);
-  Shield *ParseShield(TXMLNode *_child);
-  StoppingTarget *ParseTarget(TXMLNode *_child);
+  BaseBox *ParseBox(TXMLNode *_child);
+  BaseTubs *ParseTubs(TXMLNode *_child);
   Mesh *ParseMesh(TXMLNode *_child);
-  LeadBlock *ParsePbBlock(TXMLNode *_child);
-  ScintillatorObject *ParseScinti(TXMLNode *_child);
 };
+inline bool XMLParamParser::judgeElementNode(TXMLNode *_node) {
+  return _node->GetNodeType() == TXMLNode::kXMLElementNode;
+}
+
+inline int XMLParamParser::GetIntFromAttribute(TXMLAttr *_attr,
+                                               TString attrname) {
+  int output = 0;
+  TString gotname = _attr->GetName();
+  if (gotname.Contains(attrname)) {
+    output = TString(_attr->GetValue()).Atoi();
+  }
+  return output;
+}
+
+inline double XMLParamParser::GetDoubleFromAttribute(TXMLAttr *_attr,
+                                                     TString attrname) {
+  double output = 0;
+  TString gotname = _attr->GetName();
+  if (gotname.Contains(attrname)) {
+    output = TString(_attr->GetValue()).Atof();
+  }
+  return output;
+}
+
+inline void XMLParamParser::GetStringFromAttribute(TXMLNode *_node,
+                                                   TString attrname,
+                                                   TString &output) {
+  TString gotname;
+  G4double unit = 0.;
+  TList *att_list = _node->GetAttributes();
+  TXMLAttr *attr = 0;
+  TIter next(att_list);
+  if (_node->HasAttributes()) {
+    while ((attr = (TXMLAttr *)next())) {
+      gotname = attr->GetName();
+      if (gotname.Contains(attrname)) {
+        output = TString(attr->GetValue());
+      }
+    }
+  }
+}
+
+inline void XMLParamParser::GetStringFromAttribute(
+    TXMLNode *_node, std::vector<TString> attrname,
+    std::vector<TString> &output) {
+  TString gotname;
+  int n_attr = attrname.size();
+  // output.resize(n_attr);
+  G4double unit = 0.;
+  TList *att_list = _node->GetAttributes();
+  TXMLAttr *attr = 0;
+  TIter next(att_list);
+  if (_node->HasAttributes()) {
+    while ((attr = (TXMLAttr *)next())) {
+      gotname = attr->GetName();
+      for (int i = 0; i < n_attr; ++i) {
+        if (gotname.Contains(attrname[i])) {
+          output.emplace_back(TString(attr->GetValue()));
+        }
+      }
+    }
+  }
+}
+
+inline G4double XMLParamParser::GetUnitFromAttribute(TXMLAttr *_attr) {
+  std::vector<TString> unitsymbol = {"mm", "cm",  "m",   "deg", "rad",
+                                     "%",  "keV", "MeV", "GeV"};
+  TString tmpstr;
+  G4double output;
+  int n_unit = unitsymbol.size();
+  std::vector<G4double> unitnum = {mm, cm, m, deg, rad, perCent, keV, MeV, GeV};
+  if (std::strcmp(_attr->GetName(), "unit") == 0) {
+    tmpstr = TString(_attr->GetValue());
+    for (int i = 0; i < n_unit; ++i) {
+      if (tmpstr.Contains(unitsymbol[i])) {
+        output = unitnum[i];
+      }
+    }
+  }
+  return output;
+}
+
+inline void XMLParamParser::GetDoubleFromNode(TXMLNode *_node,
+                                              G4double &output) {
+  G4double unit = 0.;
+  TList *att_list = _node->GetAttributes();
+  TXMLAttr *attr = 0;
+  TIter next(att_list);
+  if (_node->HasAttributes()) {
+    while ((attr = (TXMLAttr *)next())) {
+      unit = GetUnitFromAttribute(attr);
+    }
+    output = TString(_node->GetText()).Atof() * unit;
+  }
+}
+
+inline void XMLParamParser::GetDoubleFromNode(TXMLNode *_node,
+                                              G4ThreeVector &output) {
+  G4double unit = 0.;
+  int index = 0;
+  TList *att_list = _node->GetAttributes();
+  TXMLAttr *attr = 0;
+  TIter next(att_list);
+  if (_node->HasAttributes()) {
+    while ((attr = (TXMLAttr *)next())) {
+      unit = GetUnitFromAttribute(attr);
+      index = GetIntFromAttribute(attr, "index");
+    }
+    output[index] = TString(_node->GetText()).Atof() * unit;
+  }
+}
+
+inline void XMLParamParser::GetDoubleFromNode(TXMLNode *_node,
+                                              G4TwoVector &output) {
+  G4double unit = 0.;
+  int index = 0;
+  TList *att_list = _node->GetAttributes();
+  TXMLAttr *attr = 0;
+  TIter next(att_list);
+  if (_node->HasAttributes()) {
+    while ((attr = (TXMLAttr *)next())) {
+      unit = GetUnitFromAttribute(attr);
+      index = GetIntFromAttribute(attr, "index");
+    }
+    output[index] = TString(_node->GetText()).Atof() * unit;
+  }
+}
+
+inline void XMLParamParser::SetConstructNumber() {
+  construct_type = construct_names;
+  std::sort(construct_type.begin(), construct_type.end());
+  construct_type.erase(
+      std::unique(construct_type.begin(), construct_type.end()));
+  int n_type = construct_type.size();
+  for (int i = 0; i < n_type; ++i) {
+    construct_number.emplace_back(std::count(
+        construct_names.begin(), construct_names.end(), construct_type[i]));
+  }
+}
+
+inline std::vector<BaseConstruct *> XMLParamParser::GetConstructsList() {
+  return constructs;
+}
+
+inline BaseConstruct *XMLParamParser::GetConstruct(int index) {
+  return constructs[index];
+}
+
+inline int XMLParamParser::GetConstNumber() { return constructs.size(); }
+
+inline BaseConstruct *XMLParamParser::GetWorld() {
+  auto itr = std::find(construct_names.begin(), construct_names.end(), "world");
+  int index = 0;
+  if (itr != construct_names.end()) {
+    index = std::distance(construct_names.begin(), itr);
+  }
+  return constructs[index];
+}
+
+inline void XMLParamParser::SetScintiGroupNumber() { _scinti_group_num += 1; }
+
 #endif  // !XMLPARSER_HH

@@ -37,7 +37,14 @@ int main(int argc, char* argv[]) {
   G4long seed = atoi(argv[1]);
   G4String xmlfname = argv[2];
 
-  XMLParamParser* xmlsetting = new XMLParamParser(TString(xmlfname));
+  // G4cerr << "prepared root file" << G4endl;
+  //   Sensitive Detector
+  G4cout << "prepare SD" << G4endl;
+  G4SDManager* SDManager = G4SDManager::GetSDMpointer();
+  Scintillator* plastic_scinti = new Scintillator("Plastic_scinti");
+  SDManager->AddNewDetector(plastic_scinti);
+  XMLParamParser* xmlsetting =
+      new XMLParamParser(TString(xmlfname), plastic_scinti);
   G4String basename = G4String(xmlsetting->GetFileBaseName());
   G4String xmlbasename = G4String(xmlsetting->GetXMLBaseName());
   G4String rootFileName;  // = "data/";
@@ -64,18 +71,11 @@ int main(int argc, char* argv[]) {
   RootManager::SetTreeName("tree");
   RootManager::SetInfoTreeName("info");
 
-  // G4cerr << "prepared root file" << G4endl;
-  //   Sensitive Detector
-  G4cout << "prepare SD" << G4endl;
-  G4SDManager* SDManager = G4SDManager::GetSDMpointer();
-  Scintillator* plastic_scinti = new Scintillator("Plastic_scinti");
-  SDManager->AddNewDetector(plastic_scinti);
-
   // G4cerr << "prepared SD" << G4endl;
 
   // set mandatory initialization classes
   G4cout << "prepare Geom." << G4endl;
-  runManager->SetUserInitialization(new DetectorConstruction(plastic_scinti));
+  runManager->SetUserInitialization(new DetectorConstruction(xmlsetting));
 
   G4cout << "prepare physics list" << G4endl;
   G4PhysListFactory factory;

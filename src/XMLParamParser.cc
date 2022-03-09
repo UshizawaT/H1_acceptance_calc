@@ -35,77 +35,77 @@ void XMLParamParser::ParseParameters(TXMLNode *_node) {
       // cout << "node name : " << _node->GetNodeName() << endl;
       if (std::strcmp(_node->GetNodeName(), "params") == 0) {
         child = _node->GetChildren();
-        int n_group = 0, __groupid = 0;
-        ScintillatorObject *tmp_scinti = 0;
-        LeadBlock *tmp_pbblock = 0;
+        int n_group = 0, __groupid = 0, nodetypes = 0;
+        BaseConstruct *tmpconst;
+        bool consistent = false;
+        nodetypes = nodenames.size();
         for (; child; child = child->GetNextNode()) {
-          if (child->GetNodeType() == TXMLNode::kXMLElementNode) {
-            // cout << "child name : " << child->GetNodeName() << endl;
-            if (std::strcmp(child->GetNodeName(), nodenames[0]) == 0) {
-              file_base_name = child->GetText();
-            } else if (std::strcmp(child->GetNodeName(), nodenames[1]) == 0) {
-              _beam = ParseBeam(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[2]) == 0) {
-              _world = ParseWorld(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[3]) == 0) {
-              _vacuum_volume = ParseVacuumV(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[4]) == 0) {
-              _kapton_window = ParseKapton(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[5]) == 0) {
-              _concrete_block = ParseShield(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[6]) == 0) {
-              _exist_target = true;
-              _stopping_tgt = ParseTarget(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[7]) == 0) {
-              _exist_mesh = true;
-              _mesh = ParseMesh(child);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[8]) == 0) {
-              _exist_pbblocks = true;
-              tmp_pbblock = ParsePbBlock(child);
-              _pb_blocks->Add(tmp_pbblock);
-            } else if (std::strcmp(child->GetNodeName(), nodenames[9]) == 0) {
-              tmp_scinti = ParseScinti(child);
-              _scintillators->Add(tmp_scinti);
-              __groupid = tmp_scinti->GetScintiGroupId();
-              n_group = __groupid > n_group ? __groupid : n_group;
+          if (judgeElementNode(_node)) {
+            for (int i = 0; i < nodetypes; ++i) {
+              consistent =
+                  (std::strcmp(child->GetNodeName(), nodenames[i]) == 0);
+              if (consistent && i == 0) {
+                file_base_name = child->GetText();
+              } else if (consistent && i == 1) {
+                _beam = ParseBeam(child);
+              } else if (consistent && i == 2) {
+                tmpconst = ParseBox(child);
+                constructs.emplace_back(tmpconst);
+              } else if (consistent && i == 3) {
+                tmpconst = ParseTubs(child);
+                constructs.emplace_back(tmpconst);
+              } else if (consistent && i == 4) {
+                tmpconst = ParseMesh(child);
+                constructs.emplace_back(tmpconst);
+              }
             }
           }
         }
-        _pb_block_num = _pb_blocks->GetSize();
-        _scinti_num = _scintillators->GetSize();
-        _scinti_group_num = n_group;
       }
     }
   }
-  cout << "N pb_block : " << _pb_block_num << endl;
+  SetScintiGroupNumber();
   cout << "N scinti : " << _scinti_num << endl;
   cout << "scinti group : " << _scinti_group_num << endl;
 }
 
-Beam *XMLParamParser::ParseBeam(TXMLNode *_child) {
-  TString __beamtype = "mu+";
-  double __hsize = 0., __vsize = 0., __angle = 0.;
-  if (_child->HasAttributes()) {
-    TList *att_list = _child->GetAttributes();
-    TXMLAttr *attr = 0;
-    TIter next(att_list);
-    while ((attr = (TXMLAttr *)next())) {
-      if (std::strcmp(attr->GetName(), "type") == 0) {
-        __beamtype = TString(attr->GetValue());
-      } else if (std::strcmp(attr->GetName(), "hsize") == 0) {
-        __hsize = TString(attr->GetValue()).Atof();
-      } else if (std::strcmp(attr->GetName(), "vsize") == 0) {
-        __vsize = TString(attr->GetValue()).Atof();
-      } else if (std::strcmp(attr->GetName(), "spread_angle") == 0) {
-        __angle = TString(attr->GetValue()).Atof();
+Beam *XMLParamParser::ParseBeam(TXMLNode *_node) {
+  TString __beamtype = "mu+", node_name;
+  G4double __angle = 0.;
+  G4TwoVector __size, __mom;
+  std::vector<TString> attrnames = {"type"};
+  std::vector<TString> attrvalue;
+  GetStringFromAttribute(_node, attrnames, attrvalue);
+  if (attrvalue.size() == 1) __beamtype = attrvalue[0];
+  bool consistent = false;
+  int n_node = beamnode.size();
+  TXMLAttr *attr = 0;
+  int index;
+  G4double unit;
+  for (; _node; _node = _node->GetNextNode()) {
+    if (judgeElementNode(_node)) {
+      node_name = TString(_node->GetNodeName());
+      for (int i = 0; i < n_node; ++i) {
+        consistent = node_name.Contains(beamnode[i]);
+        if (consistent) {
+          if (i == 0) {
+            GetDoubleFromNode(_node, __size);
+          } else if (i == 1) {
+            GetDoubleFromNode(_node, __angle);
+          } else if (i == 2) {
+            GetDoubleFromNode(_node, __mom[0]);
+          } else if (i == 3) {
+            GetDoubleFromNode(_node, __mom[1]);
+          }
+        }
       }
     }
   }
   cout << "beam (type, hsize, vsize, spread_angle) : (" << __beamtype << ", "
-       << __hsize << ", " << __vsize << ", " << __angle << ")" << endl;
-  return new Beam(__beamtype, __hsize, __vsize, __angle);
+       << __size[0] << ", " << __size[1] << ", " << __angle << ")" << endl;
+  return new Beam(__beamtype, __size, __angle, __mom);
 }
-
+/*
 void XMLParamParser::GetParams(TXMLNode *_child, std::vector<TString> attr_name,
                                std::vector<G4String> &strdata,
                                std::vector<int> &ids,
@@ -135,129 +135,205 @@ void XMLParamParser::GetParams(TXMLNode *_child, std::vector<TString> attr_name,
       }
     }
   }
+}**/
+
+BaseBox *XMLParamParser::ParseBox(TXMLNode *_node) {
+  TString node_name, parent_name, colorname;
+  std::vector<int> __id(2);
+  G4double __angle = 0.;
+  G4ThreeVector __size, __pos;
+  bool sd_flag = false, consistent = false;
+  std::vector<TString> attrnames = {"name", "type", "ID", "groupID"};
+  std::vector<TString> attrvalue;
+  GetStringFromAttribute(_node, attrnames, attrvalue);
+  if (attrvalue.size() == attrnames.size() - 1) {
+    __id[0] = attrvalue[2].Atoi();
+  } else if (attrvalue.size() == attrnames.size()) {
+    __id[0] = attrvalue[2].Atoi();
+    __id[1] = attrvalue[3].Atoi();
+    _scinti_group_ids.emplace_back(__id[1]);
+    _scinti_num += 1;
+    _scinti_group_num =
+        _scinti_group_num < __id[1] ? __id[1] : _scinti_group_num;
+    sd_flag = true;
+  }
+  construct_names.emplace_back(attrvalue[0]);
+  int n_node = normalconst.size();
+  int parent_index = 0;
+  bool worldflag = false;
+  G4LogicalVolume *logicalparent;
+  for (; _node; _node = _node->GetNextNode()) {
+    if (judgeElementNode(_node)) {
+      node_name = TString(_node->GetNodeName());
+      for (int i = 0; i < n_node; ++i) {
+        consistent = node_name.Contains(normalconst[i]);
+        if (consistent) {
+          if (i == 0) {
+            parent_name = _node->GetText();
+            auto itr = std::find(construct_names.begin(), construct_names.end(),
+                                 parent_name);
+            if (itr == construct_names.end() && parent_name.Contains("none")) {
+              worldflag = true;
+            } else if (itr != construct_names.end()) {
+              parent_index = std::distance(construct_names.begin(), itr);
+              logicalparent = constructs[parent_index]->GetLogicalVol();
+            } else {
+              G4cerr << "no parents !" << G4endl;
+            }
+          } else if (i == 1) {
+            GetDoubleFromNode(_node, __size);
+          } else if (i == 2) {
+            GetDoubleFromNode(_node, __pos);
+          } else if (i == 3) {
+            GetDoubleFromNode(_node, __angle);
+          } else if (i == 4) {
+            colorname = _node->GetText();
+          }
+        }
+      }
+    }
+  }
+  BaseBox *outputobj;
+  cout << "box (type, hsize, vsize, thickness, angle) : (" << attrvalue[1]
+       << ", " << __size[0] << ", " << __size[1] << ", " << __size[2] << ", "
+       << __angle << ")" << endl;
+  if (worldflag) {
+    outputobj = new BaseBox(attrvalue[0], __id[0], attrvalue[1], __size, __pos,
+                            __angle, colorname);
+  } else if (sd_flag) {
+    outputobj =
+        new BaseBox(logicalparent, scinti, attrvalue[0], __id[0], __id[1],
+                    attrvalue[1], __size, __pos, __angle, colorname);
+  } else {
+    outputobj = new BaseBox(logicalparent, attrvalue[0], __id[0], attrvalue[1],
+                            __size, __pos, __angle, colorname);
+  }
+  return outputobj;
 }
 
-DetectorWorld *XMLParamParser::ParseWorld(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = normalbox.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalbox, __strdata, __ids, __numdata);
-  cout << "world (material, thickness, angle) : (" << __strdata[1] << ", "
-       << __numdata[2] << ", " << __numdata[6] << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  return new DetectorWorld(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                           __numdata[6]);
+BaseTubs *XMLParamParser::ParseTubs(TXMLNode *_node) {
+  TString node_name, parent_name, colorname;
+  std::vector<int> __id(2);
+  G4double __angle = 0.;
+  G4TwoVector __size;
+  G4ThreeVector __pos;
+  bool sd_flag = false, consistent = false;
+  std::vector<TString> attrnames = {"name", "type", "ID", "groupID"};
+  std::vector<TString> attrvalue;
+  GetStringFromAttribute(_node, attrnames, attrvalue);
+  if (attrvalue.size() == attrnames.size() - 1) {
+    __id[0] = attrvalue[2].Atoi();
+  } else if (attrvalue.size() == attrnames.size()) {
+    __id[0] = attrvalue[2].Atoi();
+    __id[1] = attrvalue[3].Atoi();
+    sd_flag = true;
+  }
+  construct_names.emplace_back(attrvalue[0]);
+  int n_node = normalconst.size();
+  int parent_index = 0;
+  bool worldflag = false;
+  G4LogicalVolume *logicalparent;
+  for (; _node; _node = _node->GetNextNode()) {
+    if (judgeElementNode(_node)) {
+      node_name = TString(_node->GetNodeName());
+      for (int i = 0; i < n_node; ++i) {
+        consistent = node_name.Contains(normalconst[i]);
+        if (consistent) {
+          if (i == 0) {
+            parent_name = _node->GetText();
+            auto itr = std::find(construct_names.begin(), construct_names.end(),
+                                 parent_name);
+            if (itr == construct_names.end() && parent_name.Contains("none")) {
+              worldflag = true;
+            } else if (itr != construct_names.end()) {
+              parent_index = std::distance(construct_names.begin(), itr);
+              logicalparent = constructs[parent_index]->GetLogicalVol();
+            } else {
+              G4cerr << "no parents !" << G4endl;
+            }
+
+          } else if (i == 1) {
+            GetDoubleFromNode(_node, __size);
+          } else if (i == 2) {
+            GetDoubleFromNode(_node, __pos);
+          } else if (i == 3) {
+            GetDoubleFromNode(_node, __angle);
+          } else if (i == 4) {
+            colorname = _node->GetText();
+          }
+        }
+      }
+    }
+  }
+  BaseTubs *outputobj;
+  cout << "tubs (type, dia, thickness, angle) : (" << attrvalue[1] << ", "
+       << __size[0] << ", " << __size[1] << ", " << __angle << ")" << endl;
+  if (worldflag) {
+    outputobj = new BaseTubs(attrvalue[0], __id[0], attrvalue[1], __size, __pos,
+                             __angle, colorname);
+  } else {
+    outputobj = new BaseTubs(logicalparent, attrvalue[0], __id[0], attrvalue[1],
+                             __size, __pos, __angle, colorname);
+  }
+  return outputobj;
 }
 
-VacuumVolume *XMLParamParser::ParseVacuumV(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = normalbox.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalTubs, __strdata, __ids, __numdata);
-  cout << "world (material, thickness, angle) : (" << __strdata[1] << ", "
-       << __numdata[2] << ", " << __numdata[6] << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], 0.};
-  __pos = G4ThreeVector{__numdata[2], __numdata[3], __numdata[4]};
-  return new VacuumVolume(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                          __numdata[5]);
-}
-
-Kapton *XMLParamParser::ParseKapton(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = normalbox.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalTubs, __strdata, __ids, __numdata);
-  cout << "world (material, thickness, angle) : (" << __strdata[1] << ", "
-       << __numdata[2] << ", " << __numdata[6] << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], 0.};
-  __pos = G4ThreeVector{__numdata[2], __numdata[3], __numdata[4]};
-  return new Kapton(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                    __numdata[5]);
-}
-
-Shield *XMLParamParser::ParseShield(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = normalbox.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalbox, __strdata, __ids, __numdata);
-  cout << "shield (material, thickness, angle) : (" << __strdata[1] << ", "
-       << __numdata[2] << ", " << __numdata[6] << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  return new Shield(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                    __numdata[6]);
-}
-
-StoppingTarget *XMLParamParser::ParseTarget(TXMLNode *_child) {
-  // G4String __material = "Fe", __name;
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = normalbox.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalbox, __strdata, __ids, __numdata);
-  cout << "stopping target (material, thickness, angle) : (" << __strdata[1]
-       << ", " << __numdata[2] << ", " << __numdata[6] << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  return new StoppingTarget(__strdata[0], __ids[0], __strdata[1], __sizev,
-                            __pos, __numdata[6]);
-}
-
-Mesh *XMLParamParser::ParseMesh(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = mesh_node.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, mesh_node, __strdata, __ids, __numdata);
-  cout << "mesh (material, wire_dia., length, pitch) : (" << __strdata[1]
-       << ", " << __numdata[0] << ", " << __numdata[1] << "," << __numdata[2]
+Mesh *XMLParamParser::ParseMesh(TXMLNode *_node) {
+  TString node_name, parent_name, colorname;
+  std::vector<int> __id(1);
+  G4double __angle = 0., __pitch = 0.;
+  G4ThreeVector __size, __pos;
+  bool consistent = false;
+  std::vector<TString> attrnames = {"name", "type", "ID"};
+  std::vector<TString> attrvalue;
+  GetStringFromAttribute(_node, attrnames, attrvalue);
+  if (attrvalue.size() == attrnames.size()) {
+    __id[0] = attrvalue[2].Atoi();
+  }
+  construct_names.emplace_back(attrvalue[0]);
+  int n_node = mesh_node.size();
+  int parent_index = 0;
+  G4LogicalVolume *logicalparent;
+  for (; _node; _node = _node->GetNextNode()) {
+    if (judgeElementNode(_node)) {
+      node_name = TString(_node->GetNodeName());
+      for (int i = 0; i < n_node; ++i) {
+        consistent = node_name.Contains(normalconst[i]);
+        if (consistent) {
+          if (i == 0) {
+            parent_name = _node->GetText();
+            auto itr = std::find(construct_names.begin(), construct_names.end(),
+                                 parent_name);
+            if (itr != construct_names.end()) {
+              parent_index = std::distance(construct_names.begin(), itr);
+              logicalparent = constructs[parent_index]->GetLogicalVol();
+            } else {
+              G4cerr << "no parents !" << G4endl;
+            }
+          } else if (i == 1) {
+            GetDoubleFromNode(_node, __size);
+          } else if (i == 2) {
+            GetDoubleFromNode(_node, __size[2]);
+          } else if (i == 3) {
+            GetDoubleFromNode(_node, __pos);
+          } else if (i == 4) {
+            GetDoubleFromNode(_node, __angle);
+          } else if (i == 5) {
+            colorname = _node->GetText();
+          }
+        }
+      }
+    }
+  }
+  Mesh *outputobj;
+  cout << "mesh (type, dia, length, pitch, angle) : (" << attrvalue[1] << ", "
+       << __size[0] << ", " << __size[1] << ", " << __size[2] << ", " << __angle
        << ")" << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  return new Mesh(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                  __numdata[6]);
-}
 
-LeadBlock *XMLParamParser::ParsePbBlock(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(1);
-  int n_attr = mesh_node.size();
-  std::vector<double> __numdata(n_attr - 3);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, normalbox, __strdata, __ids, __numdata);
-  cout << "LeadBlock size(s1, s2, s3) : (" << __strdata[1] << ", "
-       << __numdata[0] << ", " << __numdata[1] << "," << __numdata[2] << ")"
-       << endl;
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  return new LeadBlock(__strdata[0], __ids[0], __strdata[1], __sizev, __pos,
-                       __numdata[6]);
-}
+  outputobj = new Mesh(logicalparent, attrvalue[0], __id[0], attrvalue[1],
+                       __size, __pos, __angle, colorname);
 
-ScintillatorObject *XMLParamParser::ParseScinti(TXMLNode *_child) {
-  std::vector<G4String> __strdata(2);
-  std::vector<int> __ids(2);
-  int n_attr = mesh_node.size();
-  std::vector<double> __numdata(n_attr - 4);
-  G4ThreeVector __sizev, __pos;
-  GetParams(_child, scinti_node, __strdata, __ids, __numdata);
-  __sizev = G4ThreeVector{__numdata[0], __numdata[1], __numdata[2]};
-  __pos = G4ThreeVector{__numdata[3], __numdata[4], __numdata[5]};
-  cout << "Scinti. size(s1, s2, s3) : (" << __strdata[1] << ", " << __numdata[0]
-       << ", " << __numdata[1] << "," << __numdata[2] << ")" << endl;
-  return new ScintillatorObject(__strdata[0], __ids[0], __ids[1], __strdata[1],
-                                __sizev, __pos, __numdata[6]);
+  return outputobj;
 }
 
 TString XMLParamParser::GetXMLBaseName() { return xml_base_name; }

@@ -3,28 +3,10 @@
 // using namespace CLHEP;
 
 Beam *_beam;
-DetectorWorld *_world;
-Kapton *_kapton_window;
-Shield *_concrete_block;
-VacuumVolume *_vacuum_volume;
-StoppingTarget *_stopping_tgt;
-Mesh *_mesh;
-TList *_pb_blocks;
-TList *_scintillators;
 
-G4String _kapton_mat = "kapton";
-G4String _sciti_mat = "plastic";
-
-G4double _dia_kapton = 0.4;
-G4double _thick_kapton = 75e-6;
-
-G4int _pb_block_num = 2;
-bool _exist_mesh = false;
-bool _exist_target = false;
-
-bool _exist_pbblocks = false;
-G4int _scinti_num = 2;
-G4int _scinti_group_num = 1;
+std::vector<G4int> _scinti_group_ids;
+G4int _scinti_num = 0;
+G4int _scinti_group_num = 0;
 
 /////////////////////////////////////////////////////////////////////
 /// Global ttree

@@ -7,36 +7,13 @@
 #include <globals.hh>
 
 #include "Beam.hh"
-#include "DetectorWorld.hh"
-#include "Kapton.hh"
 #include "Material.hh"
 #include "Mesh.hh"
-#include "Shield.hh"
-#include "StoppingTarget.hh"
-#include "VacuumVolume.hh"
 #include "VisAttributes.hh"
 
 extern Beam *_beam;
-extern DetectorWorld *_world;
-extern Kapton *_kapton_window;
-extern Shield *_concrete_block;
-extern VacuumVolume *_vacuum_volume;
-extern StoppingTarget *_stopping_tgt;
-extern Mesh *_mesh;
-extern TList *_scintillators;
-extern TList *_pb_blocks;
 // G4String _target_mat = "PMMA";
-extern G4String _kapton_mat;  // = "kapton";
-extern G4String _sciti_mat;   // = "plastic";
-
-extern G4double _dia_kapton;    // = 0.4;
-extern G4double _thick_kapton;  // = 75e-6;
-// G4double _thick_target = 3.6e-3;
-extern bool _exist_mesh;
-extern bool _exist_target;
-
-extern bool _exist_pbblocks;
-extern G4int _pb_block_num;
+extern std::vector<G4int> _scinti_group_ids;
 extern G4int _scinti_num;
 extern G4int _scinti_group_num;
 

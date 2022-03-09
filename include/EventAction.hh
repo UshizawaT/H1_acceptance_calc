@@ -2,7 +2,6 @@
 #define EventAction_h 1
 
 #include "G4UserEventAction.hh"
-#include "ScintillatorObject.hh"
 #include "globals.hh"
 
 class G4Event;
@@ -18,7 +17,6 @@ class EventAction : public G4UserEventAction {
  private:
   // G4int* hitflag;
   // G4int* coinciflag;
-
   G4bool writeflag = false;
   G4int scintigid = 0;
   G4String particle_name;

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v11
+# Install script for directory: /Users/ushizawa/data/H_line_com/AcceptanceCalc_v12
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,12 +38,12 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/Acceptance_calculation")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v12/build/Acceptance_calculation")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Acceptance_calculation" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Acceptance_calculation")
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/usr/local/src_build/root-6.24.06/root_build2/lib"
-      -delete_rpath "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build"
+      -delete_rpath "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v12/build"
       -delete_rpath "/usr/local/src_build/geant4-v11.0.0-install/lib"
       -delete_rpath "/usr/local/lib"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Acceptance_calculation")
@@ -61,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v11/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/ushizawa/data/H_line_com/AcceptanceCalc_v12/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
