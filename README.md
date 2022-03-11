@@ -4,6 +4,12 @@
 * Geant4 : 4.10 or above
 * libxml2 and CLHEP required
 * __recomend to use it on kekcc__
+## How to set enviroment on kekcc
+* Enter your account on kekcc
+* Follow the bellow steps to create a new file
+```cd $HOME  [vi/emacs] setup_gcc_9_2_0_zsh.sh```
+* Write below letters on your `.bashrc` or `.zshrc`
+```source $HOME/setup_gcc_9_2_0_zsh.sh```
 ## How to build
 1. git clone the repo  
 ```git clone https://github.com/UshizawaT/H1_acceptance_calc.git```
@@ -13,7 +19,7 @@
 ```cmake .. && make```
 ## How to use
 1. write .xml file (ex. setting_test.xml  
-    * Unit is mm, deg.
+    * you can put whatever you want.
 2. run the Acceptance_calculation  
 ```./Acceptance_calculation [seed number] [xml file name] [macro file (*.mac)]```
     * The inside `[]` is your defined
