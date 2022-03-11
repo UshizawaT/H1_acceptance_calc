@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<params>
+  <filename>acceptance</filename>
+  <beam type="mu+">
+    <size index="0" unit="mm">20</size>
+    <size index="1" unit="mm">0</size>
+    <spread_angle unit="deg">1.718358</spread_angle>
+    <mean_momentum unit="MeV">28</mean_momentum>
+    <momentum_width unit="%">4</momentum_width>
+  </beam>
+
+  <basebox name="world" type="air" ID="0">
+    <parent>none</parent>
+    <color>none</color>
+    <size index="0" unit="mm">10000</size>
+    <size index="1" unit="mm">4000</size>
+    <size index="2" unit="mm">10000</size>
+    <position index="0" unit="mm">0.</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">0.</position>
+    <angle unit="deg">0.</angle>
+  </basebox>
+
+  <basetubs name="vacuum_volume" type="vacuum" ID="0">
+    <parent>world</parent>
+    <color>none</color>
+    <size index="0" unit="mm">1000</size>
+    <size index="1" unit="mm">999.925</size>
+    <position index="0" unit="mm">0.</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">-500</position>
+    <angle unit="deg">0.</angle>
+  </basetubs>
+
+  <basetubs name="kapton_window" type="kapton" ID="0">
+    <parent>world</parent>
+    <color>yellow</color>
+    <size index="0" unit="mm">400</size>
+    <size index="1" unit="mm">75e-3</size>
+    <position index="0" unit="mm">0.</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">0.</position>
+    <angle unit="deg">0.</angle>
+  </basetubs>
+
+  <basebox name="shield" type="concrete" ID="0">
+    <parent>world</parent>
+    <color>gray</color>
+    <size index="0" unit="mm">1600</size>
+    <size index="1" unit="mm">1600</size>
+    <size index="2" unit="mm">1400</size>
+    <position index="0" unit="mm">200</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">1890</position>
+    <angle unit="deg">0.</angle>
+  </basebox>
+
+  <basebox name="target" type="Al" ID="0">
+    <parent>world</parent>
+    <color>green</color>
+    <size index="0" unit="mm">200</size>
+    <size index="1" unit="mm">200</size>
+    <size index="2" unit="mm">5</size>
+    <position index="0" unit="mm">0</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">200</position>
+    <angle unit="deg">30.</angle>
+  </basebox>
+
+  <mesh name="sus_mesh" type="SUS304" ID="0">
+    <parent>vacuum_volume</parent>
+    <color>magenta</color>
+    <size index="0" unit="mm">1.8</size>
+    <size index="1" unit="mm">400</size>
+    <pitch unit="mm">20</pitch>
+    <position index="0" unit="mm">0.</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">-5</position>
+    <angle unit="deg">90.</angle>
+  </mesh>
+
+  <basebox name="pb_block_" type="Pb" ID="0">
+    <parent>world</parent>
+    <color>blue</color>
+    <size index="0" unit="mm">200</size>
+    <size index="1" unit="mm">100</size>
+    <size index="2" unit="mm">50</size>
+    <position index="0" unit="mm">2470</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">174.5</position>
+    <angle unit="deg">0.</angle>
+  </basebox>
+
+  <basebox name="pb_block_" type="Pb" ID="1">
+    <parent>world</parent>
+    <color>blue</color>
+    <size index="0" unit="mm">200</size>
+    <size index="1" unit="mm">100</size>
+    <size index="2" unit="mm">50</size>
+    <position index="0" unit="mm">2470</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">225.5</position>
+    <angle unit="deg">0.</angle>
+  </basebox>
+
+  <basebox name="Scinti_" type="plastic" ID="0" groupID="0">
+    <parent>world</parent>
+    <color>cyan</color>
+    <size index="0" unit="mm">1000</size>
+    <size index="1" unit="mm">1000</size>
+    <size index="2" unit="mm">5</size>
+    <position index="0" unit="mm">2820</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">200</position>
+    <angle unit="deg">90</angle>
+  </basebox>
+
+  <basebox name="Scinti_" type="plastic" ID="1" groupID="1">
+    <parent>world</parent>
+    <color>cyan</color>
+    <size index="0" unit="mm">1000</size>
+    <size index="1" unit="mm">1000</size>
+    <size index="2" unit="mm">5</size>
+    <position index="0" unit="mm">2857</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">200</position>
+    <angle unit="deg">90</angle>
+  </basebox>
+
+  <basebox name="Scinti_" type="plastic" ID="2" groupID="0">
+    <parent>world</parent>
+    <color>cyan</color>
+    <size index="0" unit="mm">1000</size>
+    <size index="1" unit="mm">1000</size>
+    <size index="2" unit="mm">5</size>
+    <position index="0" unit="mm">2894</position>
+    <position index="1" unit="mm">0.</position>
+    <position index="2" unit="mm">200</position>
+    <angle unit="deg">90</angle>
+  </basebox>
+</params>
