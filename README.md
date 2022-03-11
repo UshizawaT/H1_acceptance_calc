@@ -10,7 +10,8 @@
 ```cd $HOME```  
 ```[vi/emacs] setup_gcc_9_2_0_zsh.sh```  
 * Write below letters on `setup_gcc_9_2_0_zsh.sh`  
-```#!/bin/sh
+```
+#!/bin/sh
 
 cd $(dirname $0)
 CUR=$PWD
@@ -56,7 +57,8 @@ export LD_LIBRARY_PATH=${GENFIT_DIR}/lib64:${LD_LIBRARY_PATH}
 
 # git 2.25.0
 export PATH=/group/had/g-2/share/git/git-2.25.0/bin:$PATH
-export LD_LIBRARY_PATH=/group/had/g-2/share/git/git-2.25.0/libexec:${LD_LIBRARY_PATH}```
+export LD_LIBRARY_PATH=/group/had/g-2/share/git/git-2.25.0/libexec:${LD_LIBRARY_PATH}
+```
 * Write below letters on your `.bashrc` or `.zshrc`
 ```source $HOME/setup_gcc_9_2_0_zsh.sh```
 ## How to build
