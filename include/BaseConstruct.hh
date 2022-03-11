@@ -1,7 +1,7 @@
 #ifndef BASECONST_HH
 #define BASECONST_HH 1
 
-#include <TObject.h>
+#include < TObject.h>
 #include <TString.h>
 
 #include <G4LogicalVolume.hh>

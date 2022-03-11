@@ -20,5 +20,4 @@ class BaseTubs : public BaseConstruct {
   virtual void SetGeometry();
   virtual void SetWGeometry();
 };
-
 #endif  // !BASETUBS_HH

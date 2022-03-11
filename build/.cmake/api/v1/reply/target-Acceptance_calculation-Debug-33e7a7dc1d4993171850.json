@@ -123,7 +123,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -DGL_SILENCE_DEPRECATION -pthread -ftls-model=initial-exec -std=c++17 -O2 -fcolor-diagnostics -Ofast -mtune=native -march=native -std=c++11 -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -stdlib=libc++ -O3 -DNDEBUG -fno-trapping-math -ftree-vectorize -fno-math-errno -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk"
+					"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -DGL_SILENCE_DEPRECATION -pthread -ftls-model=initial-exec -std=c++17 -O2 -fcolor-diagnostics -Ofast -mtune=native -march=native -std=c++11 -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -stdlib=libc++ -g -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk"
 				},
 				{
 					"backtrace" : 6,
@@ -198,10 +198,6 @@
 				{
 					"backtrace" : 6,
 					"define" : "QT_NETWORK_LIB"
-				},
-				{
-					"backtrace" : 6,
-					"define" : "QT_NO_DEBUG"
 				},
 				{
 					"backtrace" : 6,
@@ -424,7 +420,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -DGL_SILENCE_DEPRECATION -pthread -ftls-model=initial-exec -std=c++17 -O2 -fcolor-diagnostics -Ofast -mtune=native -march=native -std=c++11 -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -stdlib=libc++ -O3 -DNDEBUG -fno-trapping-math -ftree-vectorize -fno-math-errno -O3 -DNDEBUG",
+				"fragment" : "-W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -Wno-variadic-macros -Wshadow -pipe -Qunused-arguments -DGL_SILENCE_DEPRECATION -pthread -ftls-model=initial-exec -std=c++17 -O2 -fcolor-diagnostics -Ofast -mtune=native -march=native -std=c++11 -m64 -pipe -fsigned-char -fno-common -Qunused-arguments -pthread -stdlib=libc++ -g -g",
 				"role" : "flags"
 			},
 			{
