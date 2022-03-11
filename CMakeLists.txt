@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.15...3.21)
 project(Acceptance_calc_v4)
 
-#set(CMAKE_CXX_FLAGS "-Ofast -mtune=native -march=native -fcolor-diagnostics")
-set(CMAKE_CXX_FLAGS "-O2 -fcolor-diagnostics")
+set(CMAKE_CXX_FLAGS "-Ofast -w -mtune=native -march=native -fcolor-diagnostics")
+#set(CMAKE_CXX_FLAGS "-O2 -fcolor-diagnostics")
 
 list(APPEND CMAKE_PREFIX_PATH  $ENV{ROOTSYS})
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} $ENV{ROOTSYS}/etc/cmake)

@@ -1,0 +1,20 @@
+# ninja log v5
+6	4110	1646975095809257966	CMakeFiles/Acceptance_lib.dir/src/BaseTubs.cc.o	6eb2f2ad798d4013
+6	4200	1646975095844867417	CMakeFiles/Acceptance_lib.dir/src/BaseBox.cc.o	b30ec749c950caf5
+8	4983	1646975096681254374	CMakeFiles/Acceptance_lib.dir/src/GlobalVariables.cc.o	c51e9090e7db99e9
+7	5509	1646975097205119170	CMakeFiles/Acceptance_lib.dir/src/DetectorConstruction.cc.o	8def972bb544e08
+7	6396	1646975098070615477	CMakeFiles/Acceptance_lib.dir/src/EventAction.cc.o	a64544734fc43549
+5	6578	1646975098274131027	CMakeFiles/Acceptance_lib.dir/src/ActionInitialization.cc.o	6c2bf558dae75a25
+4110	8188	1646975099892534420	CMakeFiles/Acceptance_lib.dir/src/Material.cc.o	864980f50fb5f93c
+4983	8316	1646975100000409402	CMakeFiles/Acceptance_lib.dir/src/MeshParam.cc.o	479f63bca5b1f871
+4200	9772	1646975101442356927	CMakeFiles/Acceptance_lib.dir/src/Mesh.cc.o	c789dc7a7220ad40
+8316	11392	1646975103099952426	CMakeFiles/Acceptance_lib.dir/src/TrackerHit.cc.o	9b89809eb8c96f8f
+6396	11967	1646975103664722615	CMakeFiles/Acceptance_lib.dir/src/RunAction.cc.o	73724acb178ec4b6
+6579	12098	1646975103741189346	CMakeFiles/Acceptance_lib.dir/src/Scintillator.cc.o	43255098e48195e8
+9772	12109	1646975103791155739	CMakeFiles/Acceptance_lib.dir/src/VisAttributes.cc.o	a2bb90e4685b933
+5510	12593	1646975104289243085	CMakeFiles/Acceptance_lib.dir/src/PrimaryGeneratorAction.cc.o	dcd64dcd747a901a
+8188	13496	1646975105198745901	CMakeFiles/Acceptance_lib.dir/src/SteppingAction.cc.o	c3bddabef5963372
+11393	14982	1646975106688368370	CMakeFiles/Acceptance_lib.dir/src/XMLParamParser.cc.o	4f5c67152b76369
+14982	15200	1646975106910376192	libAcceptance_lib.dylib	a42645c4a7fad427
+11967	15908	1646975107607955269	CMakeFiles/Acceptance_calculation.dir/Main.cc.o	f2e718344337fe13
+15908	16061	1646975107771650715	Acceptance_calculation	fa4fdb1a12b11af8

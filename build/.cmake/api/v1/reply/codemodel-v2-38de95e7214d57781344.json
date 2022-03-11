@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-7abf2ce78a3b5b359118.json",
+					"jsonFile" : "directory-.-Release-7abf2ce78a3b5b359118.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.9"
@@ -22,7 +22,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -44,21 +44,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Acceptance_calc_v4::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Acceptance_calc_v4-Debug-4c1e0e5ca881a5baefe1.json",
+					"jsonFile" : "target-Acceptance_calc_v4-Release-4c1e0e5ca881a5baefe1.json",
 					"name" : "Acceptance_calc_v4",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Acceptance_calculation::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Acceptance_calculation-Debug-33e7a7dc1d4993171850.json",
+					"jsonFile" : "target-Acceptance_calculation-Release-d055d896ffc62d8a4d82.json",
 					"name" : "Acceptance_calculation",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Acceptance_lib::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Acceptance_lib-Debug-e57081b44fef2857ac33.json",
+					"jsonFile" : "target-Acceptance_lib-Release-4046898c4940eb6b28d1.json",
 					"name" : "Acceptance_lib",
 					"projectIndex" : 0
 				}
