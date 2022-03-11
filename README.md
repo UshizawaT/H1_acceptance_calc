@@ -5,9 +5,9 @@
 * libxml2 and CLHEP required
 * __recomend to use it on kekcc__
 ## How to set enviroment on kekcc
-* Enter your account on kekcc
-* Follow the bellow steps to create a new file
-```cd $HOME  [vi/emacs] setup_gcc_9_2_0_zsh.sh```
+* Enter your account on kekcc  
+* Follow the bellow steps to create a new file  
+```cd $HOME  [vi/emacs] setup_gcc_9_2_0_zsh.sh```  
 * Write below letters on your `.bashrc` or `.zshrc`
 ```source $HOME/setup_gcc_9_2_0_zsh.sh```
 ## How to build
